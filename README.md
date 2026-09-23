@@ -12,3 +12,4 @@ JavaScript syntax and representative ranking/parser assertions checked. No detai
 
 ## GitHub / local development
 Run `npm run check` for syntax validation and `npm start` to serve locally at http://localhost:8080. There are no npm dependencies or API keys. Serve the `dist` folder over HTTPS in production. The `.openai/hosting.json` file identifies the existing Sites deployment; GitHub source hosting does not automatically change hosting or enable GitHub-to-Sites deployment. Live location permission should be checked on a real phone/browser.
+JavaMile website.

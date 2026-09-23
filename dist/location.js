@@ -1,4 +1,4 @@
-// Device coordinates remain in memory. No tracking, storage, or network requests.
+// Coordinates remain in memory; nearby.js sends rounded coordinates to Overpass for café lookup.
 export function createLocationService({geo,secure=true,onChange=()=>{}}={}) {
   let state={status:'idle',coordinates:null,message:''},generation=0;
   const publish=patch=>{state={...state,...patch};onChange({...state});return state};
@@ -15,9 +15,9 @@ export function createLocationService({geo,secure=true,onChange=()=>{}}={}) {
         if(requestId!==generation)return;
         const {latitude,longitude,accuracy}=position.coords;
         if(!Number.isFinite(latitude)||!Number.isFinite(longitude)||!Number.isFinite(accuracy)||accuracy<0||Math.abs(latitude)>90||Math.abs(longitude)>180){failure({code:2});return}
-        publish({status:'ready',coordinates:{latitude,longitude,accuracy,timestamp:position.timestamp},message:'Your location is ready. Café search is not connected yet, so the drinks and distances below are still samples.'});
+        publish({status:'ready',coordinates:{latitude,longitude,accuracy,timestamp:position.timestamp},message:'Your location is ready. Searching nearby café listings.'});
       },failure,{enableHighAccuracy:false,timeout:12000,maximumAge:60000})}catch{failure({code:2})}
     }
   }
 }
-export function locationLabel(state){return {idle:'Use my location',loading:'Finding your location…',ready:'Your location detected',denied:'Location blocked · sample area',unavailable:'Location unavailable · sample area',demo:'Demo neighborhood'}[state.status]}
+export function locationLabel(state){return {idle:'Use my location',loading:'Finding your location…',ready:'Your location detected',denied:'Location blocked',unavailable:'Location unavailable',demo:'Demo neighborhood'}[state.status]}

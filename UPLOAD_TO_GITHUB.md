@@ -1,10 +1,7 @@
-# Upload JavaMile to GitHub
+# Update JavaMile
 
-1. Extract this ZIP.
-2. Create or open your GitHub repository.
-3. Upload the extracted contents, keeping the dist folder intact. Do not upload only the ZIP.
-4. Commit the files.
+Extract this ZIP and replace the matching files in your GitHub repository. Keep the dist folder intact. If your existing deployment serves app files directly from the repository root, upload the contents of dist into that root instead. Redeploy and refresh your browser.
 
-This includes the automatic location update. Cafes and menus remain sample data. GitHub source upload alone does not deploy a running website. The existing JavaMile preview remains hosted separately.
+Allow device location, then choose Allow nearby cafe search to send approximate coordinates to OpenStreetMap Overpass. Actual cafe listings are sorted by distance. Full drink menus are not connected; no sample drinks appear in live mode. Public map coverage and service availability vary.
 
-This portable export omits the existing hosting identity and Git history. No API keys or credentials are included.
+Basic syntax, sorting and URL checks passed. A live external location request was blocked by automatic approval review; no successful live response was verified in this environment.
